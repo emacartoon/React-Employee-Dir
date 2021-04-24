@@ -4,6 +4,7 @@ import React from "react";
 import EmployeeCard from "./components/EmployeeCard";
 import Title from "./components/Title";
 import Wrapper from "./components/Wrapper";
+import SearchForm from "./components/SearchForm";
 import Footer from "./components/Footer";
 
 import API from "./utils/API";
@@ -12,6 +13,7 @@ class App extends React.Component {
   state = {
     employees: [],
     search: "",
+    sortedEmployees: [],
   };
 
   componentDidMount() {
@@ -40,6 +42,36 @@ class App extends React.Component {
     return false;
   };
 
+  handleFormSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  handleOnInputChange = (event) => {
+    const query = event.target.value;
+    const name = event.target.name;
+    console.log(this.state.employees);
+    const found = this.state.employees.filter((employee) => {
+      return employee[name].toLowerCase().includes(this.state.search);
+      // console.log(employee.name);
+    });
+    console.log(found);
+    this.setState({
+      ...this.state,
+      search: query,
+      sortedEmployees: [...found],
+    });
+  };
+
+  // componentDidUpdate(prevProps) {
+  //   console.log(prevProps);
+  //   if (prevProps.employees !== this.props.employees) {
+  //     this.setState({
+  //       employees: [...this.props.employees],
+  //       sortedEmployees: [...this.props.employees],
+  //     });
+  //   }
+  // }
+
   // filterEmployees = (employee) => {
   //   if (employee.name.includes(this.state.search)) return true;
   //   if (employee.phone.includes(this.state.search)) return true;
@@ -50,10 +82,20 @@ class App extends React.Component {
 
   render() {
     const { employees } = this.state;
+    console.log(this.state);
     return (
       <Wrapper>
         <Title />
-        <table class="table">
+        <nav>
+          <div>
+            <SearchForm
+              value={this.state.search}
+              handleOnInputChange={this.handleOnInputChange}
+              handleFormSubmit={this.handleFormSubmit}
+            />
+          </div>
+        </nav>
+        <table className="table">
           <tbody>
             <tr className="headRow">
               <td className="pix headRow"></td>

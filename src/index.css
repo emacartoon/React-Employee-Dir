@@ -21,21 +21,51 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+nav {
+  padding-left: 10%;
+  min-height: 3rem;
+  min-width: 100%;
+  flex-direction: column;
+  background-color: #a4adcb;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
+.search {
+  display: inline-block;
+  width: auto;
+  vertical-align: middle;
+  height: calc(2em + .75rem + 2px);
+  padding: .5rem 1rem;
+  color: #707070;
+  margin: 10px 0px;
+
+}
+
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
 .table {
-  margin: 0 auto;
+  margin: 1rem auto;
+  padding-top: 1rem;
   width: 90%;
   border: 0px 0px;
   border-collapse: collapse;
 }
 
 .headRow {
-  background-color: #a4adcb;
-  color: #FFF;
+  background-color: #acebd1;
+  color: #707070;
   font-size: 1.25rem;
   padding: 5px;
 }

@@ -1,18 +1,19 @@
 import React from "react";
 
 function SearchForm(props) {
+  console.log(props);
   return (
-    <form>
+    <form className="form-inline">
       <div className="form-group">
-        <label htmlFor="search">Search:</label>
         <input
-          onChange={props.handleInputChange}
-          value={props.value}
-          name="search"
           type="text"
-          className="form-control"
-          placeholder="Search"
+          className="search"
+          value={props.value}
           id="search"
+          placeholder="Search..."
+          onChange={props.handleOnInputChange}
+          name="search"
+          list="employees"
         />
       </div>
     </form>

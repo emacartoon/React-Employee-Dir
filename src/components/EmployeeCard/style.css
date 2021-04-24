@@ -1,4 +1,4 @@
-tr:nth-child(even) {background: #CCCCCC; border-bottom: 1px #707070;}
-tr:nth-child(odd) {background: #FFFFFF; border-bottom: 1px #707070;}
+tr:nth-child(odd) {background: #CCCCCC; border-bottom: 1px #707070;}
+tr:nth-child(even) {background: #FFFFFF; border-bottom: 1px #707070;}
 td {padding: 5px;}
 .pixpad {padding: 5px; border-radius: 50%;}
