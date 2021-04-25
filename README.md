@@ -20,8 +20,8 @@ This Budget Tracker is a homework project with the front end coded provided by T
 
 ## Links
 
-- [Github Repository](https://github.com/emacartoon/budget-tracker)
-- [Heroku App](https://budget-tracker-abroad.herokuapp.com/)
+- [Github Repository](https://github.com/emacartoon/react-employee-dir)
+- [Netlify App](https://budget-tracker-abroad.herokuapp.com/)
 
 ## User Story
 
@@ -34,6 +34,7 @@ JavaScript
 Node.js 
 Axios
 Bootstrap
+Moment
 
 ## Testing
 

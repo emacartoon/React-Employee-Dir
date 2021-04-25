@@ -1,5 +1,7 @@
 import React from "react";
 import "./style.css";
+import moment from "moment";
+
 
 function EmployeeCard(props) {
   return (
@@ -17,7 +19,7 @@ function EmployeeCard(props) {
           {props.email}
       </td>
       <td className="dob">
-          {props.dob}
+          {moment(props.dob).format('MMMM Do')}
       </td>
     </tr>      
   );
