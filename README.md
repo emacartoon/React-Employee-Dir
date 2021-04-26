@@ -21,7 +21,7 @@ This Budget Tracker is a homework project with the front end coded provided by T
 ## Links
 
 - [Github Repository](https://github.com/emacartoon/react-employee-dir)
-- [Netlify App](https://budget-tracker-abroad.herokuapp.com/)
+- [Netlify App](https://fervent-dubinsky-df27f3.netlify.app/)
 
 ## User Story
 
@@ -82,7 +82,10 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 ## Screenshots
 
 ![Screenshot of Initial Page](./sshot/Screenshot.png)
-Screenshot - Offline App
+Screenshot - Initial Page
+
+![Screenshot of Search](./sshot/Screenshot2.png)
+Screenshot - Search Filter
 
 ## Questions
 
