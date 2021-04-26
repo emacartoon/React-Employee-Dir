@@ -35,14 +35,18 @@ class App extends React.Component {
   handleOnInputChange = (event) => {
     const query = event.target.value;
     const saved = this.state.employees;
+    console.log('saved length', saved.length);
     const found = saved.filter((employee) => {
-      return employee.name.toLowerCase().includes(query);
+      console.log(employee.name);
+      return employee.name.toLowerCase().includes(query.toLowerCase());
     });
+    console.log('found length', found.length);
     this.setState({
-      employees: [...saved],
       search: query,
       sortedEmployees: [...found],
     });
+    console.log("sort", this.state.sortedEmployees);
+
   };
 
   filteredEmployees = (employee) => {
@@ -78,7 +82,7 @@ class App extends React.Component {
             </tr>
           </thead>
           <tbody>
-            <EmployeeList employees={this.state.employees} />
+            <EmployeeList employees={this.state.sortedEmployees} />
           </tbody>
         </table>
         <Footer />
