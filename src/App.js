@@ -1,5 +1,6 @@
 import React from "react";
-import EmployeeCard from "./components/EmployeeCard";
+// import EmployeeCard from "./components/EmployeeCard";
+import EmployeeList from "./components/EmployeeList";
 import Title from "./components/Title";
 import Wrapper from "./components/Wrapper";
 import SearchForm from "./components/SearchForm";
@@ -32,33 +33,27 @@ class App extends React.Component {
   };
 
   handleOnInputChange = (event) => {
-    console.log(event.target.value);
     const query = event.target.value;
-    this.setState({ search: query });
+    const saved = this.state.employees;
+    const found = saved.filter((employee) => {
+      return employee.name.toLowerCase().includes(query);
+    });
+    this.setState({
+      employees: [...saved],
+      search: query,
+      sortedEmployees: [...found],
+    });
   };
 
-  sortedEmployees = (employee) => {
-    if (employee.name.first.includes(this.state.query)) return true;
-    if (employee.name.last.includes(this.state.query)) return true;
-    if (employee.phone.includes(this.state.query)) return true;
-    if (employee.email.includes(this.state.query)) return true;
-    if (employee.dob.date.includes(this.state.query)) return true;
+  filteredEmployees = (employee) => {
+    if (employee.name.first.includes(this.state.search)) return true;
+    if (employee.name.last.includes(this.state.search)) return true;
+    if (employee.phone.includes(this.state.search)) return true;
+    if (employee.email.includes(this.state.search)) return true;
+    if (employee.dob.date.includes(this.state.search)) return true;
 
-    return false
-  }
-
-  // handleOnInputChange = (event) => {
-  //   const query = event.target.value;
-  //   const saved = this.state.employees;
-  //   const found = saved.filter((employee) => {
-  //     return employee.name.toLowerCase().includes(query); //
-  //   });
-  //   this.setState({
-  //     employees: [...saved],
-  //     search: query,
-  //     sortedEmployees: [...found],
-  //   });
-  // };
+    return false;
+  };
 
   render() {
     return (
@@ -67,13 +62,13 @@ class App extends React.Component {
         <nav>
           <div>
             <SearchForm
-              value={this.state.search}
               handleOnInputChange={this.handleOnInputChange}
+              searchTerm={this.state.search}
             />
           </div>
         </nav>
         <table className="table">
-          <tbody>
+          <thead>
             <tr className="headRow">
               <td className="pix headRow"></td>
               <td className="name headRow">Name</td>
@@ -81,9 +76,9 @@ class App extends React.Component {
               <td className="email headRow">E-mail</td>
               <td className="dob headRow">Birthday</td>
             </tr>
-            {this.state.sortedEmployees.map((employee) => (
-              <EmployeeCard key={employee.uuid} {...employee} />
-            ))}
+          </thead>
+          <tbody>
+            <EmployeeList employees={this.state.employees} />
           </tbody>
         </table>
         <Footer />

@@ -1,21 +1,24 @@
 import React from "react";
-import { Form, FormControl } from "react-bootstrap";
-
 
 function SearchForm(props) {
   console.log(props);
   return (
-    <Form inline>
-      <FormControl
-          id="search"
-          onChange={props.handleOnInputChange}
-          name="search"
+    <form className="form-inline">
+      <div className="form-group">
+        <input
           type="text"
-          className="form-control search"
+          className="search"
+          id="search"
           placeholder="Search..."
+          onChange={props.handleOnInputChange}
+          value={props.searchTerm}
+          name="search"
+          list="employees"
         />
-    </Form>
+      </div>
+    </form>
   );
 }
 
 export default SearchForm;
+
